@@ -1,0 +1,42 @@
+
+
+$screen-tab-1920: 1920px;
+$screen-tab-1366: 1366px;
+$screen-tab-1024: 1024px;
+$screen-tab-768: 768px;
+$screen-tab-320: 320px;
+
+
+@media screen and (max-width: $screen-tab-1920) {
+    .App {
+        width: 1920px;
+    }
+}
+@media screen and (max-width: $screen-tab-1366) {
+    .App {
+        width: 1366px;
+    }
+}
+
+@media screen and (max-width: $screen-tab-1024) {
+    .App {
+        width: 1024px;
+    }
+}
+
+
+@media screen and (max-width: $screen-tab-768) {
+    .App {
+        width: 768px;
+    }
+}
+
+@media screen and (max-width: $screen-tab-320) {
+    .App {
+        width: 320px;
+    }
+}
+
+
+
+

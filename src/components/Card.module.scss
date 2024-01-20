@@ -1,0 +1,50 @@
+@use "./../App";
+
+.card {
+    background-color: App.$global-grey;
+    width: 600px;
+    height: 300px;
+    display: flex;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.info {
+   color: blueviolet;
+    font-size: 20px;
+  font-family: App.$global-font;
+  font-style: App.$global-font-style;
+}
+
+.logo {
+
+}
+
+.price {
+display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.price_number {
+  color: App.$global-dark-blue;
+  font-size: 30px;
+}
+
+.button {
+  display: flex;
+  width: 169px;
+  height: 44px;
+  padding: 10px 52.22px 10px 52.21px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  background: App.$global-blue;
+  color: App.$global-white;
+}
+
+.logo_img {
+  background-color: blueviolet;
+  width: 40px;
+  height: 40px;
+}

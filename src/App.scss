@@ -1,4 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
+
+$global-white: #ffffff;
+$global-black: #000000;
+$global-grey: #ededed;
+$global-blue: #1734EB;
+$global-dark-blue: #14206B;
+$global-yellow: #EBC278;
+$global-beige: #E8E5CA;
+
+$global-font: Roboto, serif;
+$global-font-style: normal;
 
 $screen-tab-1920: 1920px;
 $screen-tab-1366: 1366px;
@@ -6,6 +18,11 @@ $screen-tab-1024: 1024px;
 $screen-tab-768: 768px;
 $screen-tab-320: 320px;
 
+
+.container {
+    display: flex;
+    gap: 50px;
+}
 
 @media screen and (max-width: $screen-tab-1920) {
     .App {

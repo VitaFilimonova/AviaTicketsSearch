@@ -1,0 +1,35 @@
+@use "./../App";
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 20%;
+  background-color: App.$global-beige;
+  border-radius: 16px;
+  align-items: center;
+
+}
+
+.options {
+
+}
+
+.header {
+  font-size: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+/* This css is for normalizing styles. You can skip this. */
+*, *:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+

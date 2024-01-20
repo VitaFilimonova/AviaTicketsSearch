@@ -15,6 +15,7 @@ export const useData = () => {
 export const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
     const [sorting, setSorting] = useState(false);
+    const [filter, setFilter] = useState('');
 
 
     // const url = `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=MAD&destination=BCN&departure_at=2024-01&return_at=2024-01&unique=false&sorting=price&direct=false&cy=usd&limit=30&page=1&one_way=true&token=${token}`;
@@ -54,7 +55,7 @@ export const DataProvider = ({ children }) => {
     };
 
     return (
-        <DataContext.Provider value={{data, setData}}>
+        <DataContext.Provider value={{data, filter,setFilter}}>
             {children}
         </DataContext.Provider>
     );

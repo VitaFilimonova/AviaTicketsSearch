@@ -4,11 +4,11 @@ import {useData} from "../services/API";
 import style from "./Cards.module.scss"
 
 const Cards = () => {
-    const {data, setData} = useData()
+    const {data, filter,setFilter} = useData()
     return (
         <div className={style.container}>
-
-            {data?.map(elem => <Card ticket={elem}/> )}
+            {filter? filter.map(elem => <Card ticket={elem}/> ) : data?.map(elem => <Card ticket={elem}/> )}
+            {/*{data?.map(elem => <Card ticket={elem}/> )}*/}
 
 
         </div>

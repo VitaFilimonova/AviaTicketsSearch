@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import style from "./Transfers.module.scss"
 import Checkbox from "./Checkbox";
 import {useData} from "../services/API";
@@ -14,7 +14,7 @@ const Transfers = () => {
         {id: 4, text: 'all'},
     ]
 
-    const {data, setData} = useData()
+    const {data, filter,setFilter} = useData()
     const [activeFilters, setActiveFilters] = useState([]);
 
     function handleFilterClick(element) {
@@ -29,20 +29,29 @@ const Transfers = () => {
                 setActiveFilters([...activeFilters, element.id]);
             }
         }
+
     }
+    useEffect(() => {
+        const fu = () => {
+            const filteredData = data?.filter((el) => {
+                if (activeFilters.length === 0 || el.id ===4) {
+                    // Если нет активных фильтров, показать все данные
+                    return true;
+                }
+                // Проверить, соответствует ли текущая запись активным фильтрам'
 
-    const filteredData = data?.filter((el) => {
-        if (activeFilters.length === 0 || el.id ===4) {
-            // Если нет активных фильтров, показать все данные
-            return true;
+                return activeFilters.includes(el.transfers);
+            });
+            setFilter(filteredData)
+            console.log(filteredData)
         }
-        // Проверить, соответствует ли текущая запись активным фильтрам
-        return activeFilters.includes(el.transfers);
+        fu()
+        console.log(activeFilters)
+    }, [activeFilters]);
 
 
-    });
     // setData(filteredData)
-console.log(filteredData)
+// console.log(filteredData)
     return (
         <div className={style.container}>
             <h2 className={style.header}>Количество пересадок </h2>

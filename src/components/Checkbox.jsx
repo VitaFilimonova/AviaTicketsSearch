@@ -3,7 +3,7 @@ import style from "./Checkbox.module.scss";
 import  {Tran} from "../services/Transf";
 import {useData} from "../services/API";
 
-const Checkbox = ({element}) => {
+const Checkbox = ({element, onClick}) => {
 
     const data = useData()
 function manageTransfers() {
@@ -18,13 +18,13 @@ function manageTransfers() {
         <div>
             <div className={style.form_group}>
                 <input type="checkbox" id={element.id} onClick={() => {
-                    if (element.id!==4){
 
-                    } else {
-
+                        if (onClick) {
+                            onClick(element);
+                        }
                     }
-                    manageTransfers()
-                }}/>
+                    // manageTransfers()
+                }/>
                 <label htmlFor={element.id}>{element.text}</label>
             </div>
         </div>

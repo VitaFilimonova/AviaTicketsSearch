@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import style from "./Checkbox.module.scss";
-import  {Tran} from "../services/Transf";
+import  {Tran} from "../services/Sorting";
 import {useData} from "../services/API";
 
 const Checkbox = ({element, onClick}) => {

@@ -1,3 +1,30 @@
+import React, {useEffect} from 'react';
+import {useData} from "./API";
+import Card from "../components/Card";
+
+const Sorting = (data, id, isActive, filter, setFilter, transfers) => {
+
+
+    if (isActive) {
+
+        // Сортируем данные в filter по свойству duration_to
+        // let sortedFilter
+        let sortedFilter = Array.isArray(filter) ? [...filter] : Array.isArray(data) ? [...data] : [];
+
+        sortedFilter.sort((a, b) => a.duration_to - b.duration_to);
+
+        return sortedFilter
+    } else {
+        return Array.isArray(filter) ? filter : data;
+}
+
+
+}
+;
+
+export default Sorting;
+
+
 // import React, { useEffect } from 'react';
 //
 // import { useData } from "./API";
@@ -17,7 +44,7 @@
 //     }, [num, data]);
 // }
 //
-// // const Transf = ({ num }) => {
+// // const Sorting = ({ num }) => {
 // //     // const data = useData()
 // //     useEffect(() => {
 // //         console.log('data')
@@ -43,4 +70,4 @@
 // //
 // // };
 //
-// // export default Transf;
+// // export default Sorting;

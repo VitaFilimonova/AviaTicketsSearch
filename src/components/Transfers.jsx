@@ -6,7 +6,7 @@ import {useData} from "../services/API";
 
 
 const Transfers = () => {
-    const transfers = [
+    const allTransfers = [
         {id: 0, text: 'no transfer'},
         {id: 1, text: '1 transfer'},
         {id: 2, text: '2 transfers'},
@@ -14,7 +14,7 @@ const Transfers = () => {
         {id: 4, text: 'all'},
     ]
 
-    const {data, filter,setFilter} = useData()
+    const {data, filter,setFilter, transfers, setTransfers} = useData()
     const [activeFilters, setActiveFilters] = useState([]);
 const [activeAll, setActiveAll] = useState(false)
     function handleFilterClick(element) {
@@ -51,23 +51,34 @@ const [activeAll, setActiveAll] = useState(false)
                     return true;
 
                 }
+
                 return activeFilters.includes(el.transfers);
-            });
+            }
+
+            );
+
             setFilter(filteredData);
+            console.log(filteredData)
+            console.log(transfers)
         }
         fu();
         console.log(activeFilters)
         console.log(activeAll)
+
+        // activeFilters.length>0? setTransfers(true) : setTransfers(false)
+
     }, [activeFilters,activeAll]);
 
+    useEffect(() => {
+        setTransfers(activeFilters.length > 0 || activeAll);
+        console.log(transfers)
+    }, [activeFilters, activeAll]);
 
-    // setData(filteredData)
-// console.log(filteredData)
     return (
         <div className={style.container}>
             <h2 className={style.header}>Количество пересадок </h2>
             <div className={style.options}>
-                {transfers.map(element => <Checkbox element={element} key={element.id}
+                {allTransfers.map(element => <Checkbox element={element} key={element.id}
                                                     onClick={() => handleFilterClick(element)}/>)}
 
             </div>

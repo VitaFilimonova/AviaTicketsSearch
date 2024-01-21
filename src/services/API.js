@@ -14,7 +14,7 @@ export const useData = () => {
 
 export const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
-    const [sorting, setSorting] = useState(false);
+    const [transfers, setTransfers] = useState(true);
     const [filter, setFilter] = useState('');
 
 
@@ -50,12 +50,12 @@ export const DataProvider = ({ children }) => {
 
     };
 
-    const updateSorting = (newSorting) => {
-        setSorting(newSorting);
-    };
+    // const updateSorting = (newSorting) => {
+    //     setSorting(newSorting);
+    // };
 
     return (
-        <DataContext.Provider value={{data, filter,setFilter}}>
+        <DataContext.Provider value={{data, filter,setFilter, transfers, setTransfers}}>
             {children}
         </DataContext.Provider>
     );

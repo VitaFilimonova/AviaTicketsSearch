@@ -21,7 +21,21 @@ $screen-tab-320: 320px;
 
 .container {
     display: flex;
+    flex-direction: column;
     gap: 50px;
+}
+
+.container__el {
+    display: flex;
+    flex-direction: row;
+    gap: clamp(50px, 30%, 100px);
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.container__elem {
+    display: flex;
+    margin-top: 10vh;
 }
 
 @media screen and (max-width: $screen-tab-1920) {

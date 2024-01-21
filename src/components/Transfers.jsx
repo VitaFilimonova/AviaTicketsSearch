@@ -16,11 +16,10 @@ const Transfers = () => {
 
     const {data, filter,setFilter} = useData()
     const [activeFilters, setActiveFilters] = useState([]);
-
+const [activeAll, setActiveAll] = useState(false)
     function handleFilterClick(element) {
         if (element.id === 4) {
-            // Если выбран фильтр "Все", сбросить активные фильтры
-            setActiveFilters([]);
+            activeAll? setActiveAll(false) : setActiveAll(true)
         } else {
             // Иначе, добавить/удалить фильтр из списка активных
             if (activeFilters.includes(element.id)) {
@@ -29,25 +28,37 @@ const Transfers = () => {
                 setActiveFilters([...activeFilters, element.id]);
             }
         }
-
     }
+
+    // useEffect(() => {
+    //     if (!activeAll) {
+    //         // Если выбраны конкретные фильтры, очищаем список activeFilters
+    //         setActiveFilters([]);
+    //     }
+    // }, [activeAll]);
+
     useEffect(() => {
         const fu = () => {
             const filteredData = data?.filter((el) => {
-                if (activeFilters.length === 0 || el.id ===4) {
-                    // Если нет активных фильтров, показать все данные
+                if (activeAll) {
                     return true;
                 }
-                // Проверить, соответствует ли текущая запись активным фильтрам'
+                if (activeFilters.length === 0 || el.id === 4) {
+                    return true;
+                }
+                if (el.id === 4) {
+                    setActiveAll(false)
+                    return true;
 
+                }
                 return activeFilters.includes(el.transfers);
             });
-            setFilter(filteredData)
-            console.log(filteredData)
+            setFilter(filteredData);
         }
-        fu()
+        fu();
         console.log(activeFilters)
-    }, [activeFilters]);
+        console.log(activeAll)
+    }, [activeFilters,activeAll]);
 
 
     // setData(filteredData)

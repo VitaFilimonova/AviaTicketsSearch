@@ -1,51 +1,43 @@
 @use "./../App";
 
-.container {
-   display: flex;
-  flex-direction: column;
-  gap: 50px;
-
-}
-
-.info {
-   color: blueviolet;
-    font-size: 20px;
-  font-family: App.$global-font;
-  font-style: App.$global-font-style;
-}
-
-.logo {
-
-}
-
-.price {
-display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.button {
+.cards {
   display: flex;
-  width: 169px;
-  height: 44px;
-  padding: 10px 52.22px 10px 52.21px;
-  justify-content: center;
-  align-items: center;
-  border-radius: 8px;
-  background: App.$global-blue;
-  color: App.$global-white;
+  flex-direction: column;
+  gap: 50px;
+
+  &__result {
+    width: 300px;
+    align-items: center;
+    display: none;
+    justify-content: center;
+
+    &_open {
+      display: flex;
+    }
+  }
+
+  &__header {
+    font-size: 50px;
+    font-weight: 700;
+  }
 }
 
-.logo_img {
-  background-color: blueviolet;
-  width: 40px;
-  height: 40px;
+@media screen and (min-width: App.$screen-tab-1024) {
+  .cards {
+    &__result {
+      width: 600px;
+    }
+
+    &__header{
+      font-size: 80px;
+    }
+  }
 }
 
-.results {
-  font-size: 50px;
-  display: none;
-}
-.results_open {
-  display: block;
+@media screen and (min-width: App.$screen-tab-1366) {
+  .cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+  }
 }

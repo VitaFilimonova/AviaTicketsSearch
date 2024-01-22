@@ -3,32 +3,37 @@
 .container {
   display: flex;
   flex-direction: row;
+  gap: 10px;
 
+  &__button {
+  }
 }
 
 
 
+
 .button {
-  width: 100px;
+  width: 350px;
   height: 50px;
   display: flex;
   padding: 10px 30px;
-  font-size: 10px;
+  font-size: clamp(10px, 2vw, 28px);
   border-radius: 10px;
   background-color: App.$global-dark-blue;
   color: App.$global-white;
   align-items: center;
   justify-content: center;
-  transition: background-color .2s ease-in-out, border-color .2s ease,
+  transition: background-color .2s ease-in-out, border-color .2s ease;
+
 }
 
 .button_active {
-  background-color: App.$global-black;
+  background-color: App.$global-second-blue;
 
 }
 
 .button:hover {
-  background-color: App.$global-blue;
+  background-color: App.$global-middle-blue;
   transition: background-color 0.2s ease-in-out;
 }
 .button:hover:active {
@@ -39,4 +44,11 @@
 .button:active{
   background-color: App.$global-dark-blue;
 
+}
+
+
+@media screen and (max-width: App.$screen-tab-1024) {
+  .button {
+    width: clamp(120px, 25vw ,250px);
+  }
 }

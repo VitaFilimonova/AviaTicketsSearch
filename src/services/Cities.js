@@ -1,8 +1,10 @@
 import React from 'react';
+import style from "./../components/Card.module.scss"
+
 const airportsData = require('./airports.json');
 const citiesData = require('./cities.json');
 
-const Cities = ({from='', to='', airport_from='', airport_to=''}) => {
+const Cities = ({from = '', to = '', airport_from = '', airport_to = ''}) => {
 
     let cityCodeToSearch = from !== '' ? from : to
     let airportCodeToSearch = airport_from !== '' ? airport_from : airport_to
@@ -19,15 +21,14 @@ const Cities = ({from='', to='', airport_from='', airport_to=''}) => {
         }
     }
 
-    const russianNames = findAirportByCityCode(cityCodeToSearch ,airportCodeToSearch);
-    // const airportRussianName = findAirportByCityCode(cityCodeToSearch);
-    // console.log(russianNames)
+    const russianNames = findAirportByCityCode(cityCodeToSearch, airportCodeToSearch);
+
     return (
-        <div>
-            <div>
+        <div className={style.card__header}>
+            <div className={style.city}>
                 {russianNames.cityName}
             </div>
-            <div>
+            <div className={style.airport}>
                 {russianNames.airportName}
             </div>
 

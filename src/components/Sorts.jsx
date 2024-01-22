@@ -3,7 +3,7 @@ import Sort from "./Sort";
 import style from "./Sort.module.scss";
 
 const Sorts = () => {
-    const names = [{label: 'По цене', action: 'false', id:1}, {label: 'по длительности', id:2}]
+    const names = [{label: 'По цене', action: 'false', id:1}, {label: 'По длительности', id:2}]
     const [activeButton, setActiveButton] = useState('');
 
     const handleButtonClick = (id) => {

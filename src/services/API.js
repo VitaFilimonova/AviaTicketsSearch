@@ -19,7 +19,8 @@ export const DataProvider = ({ children }) => {
 
 
     // const url = `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=MAD&destination=BCN&departure_at=2024-01&return_at=2024-01&unique=false&sorting=price&direct=false&cy=usd&limit=30&page=1&one_way=true&token=${token}`;
-    const url = `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=MOW&departure_at=2024-01&return_at=&unique=true&sorting=price&direct=false&cy=rub&limit=200&page=1&one_way=false&token=${token}`;
+    const url = `https://api.travelpayouts.com/aviasales/v3/prices_for_dates?origin=MOW&departure_at=2024-01&return_at=&unique=true&sorting=price&direct=false&cy=rub&limit=50&page=1&one_way=true&token=${token}`;
+    // const url = `https://api.travelpayouts.com/v2/prices/week-matrix?currency=rub&origin=MOW&destination=HKT&show_to_affiliates=true&depart_date=2024-01-22&return_date=2024-02-02&token=fecffce7db6061d6783a252738e57360`;
 
     useEffect(() => {
         const fetchData = async () => {

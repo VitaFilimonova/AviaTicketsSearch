@@ -3,56 +3,37 @@ import style from './Sort.module.scss'
 import Sorting from "../services/Sorting";
 import {useData} from "../services/API";
 
-const Sort = ({name, action, isActive, onClick, id}) => {
-    const { data, filter, setFilter, transfers } = useData();
-const [originData, setOriginData] = useState(filter)
+const Sort = ({name, isActive, onClick, id}) => {
+    const {data, filter, setFilter, transfers} = useData();
+    const [originData, setOriginData] = useState(filter)
     const [isSorted, setIsSorted] = useState(false);
 
     useEffect(() => {
-        // Обновляем originData только если filter изменился и сортировка не была применена
-        // if (!isSorted) {
-            setOriginData(filter);
-        // }
+        setOriginData(filter);
+    }, [transfers]);
 
-
-    }, [ transfers ]);
-    console.log(originData)
     useEffect(() => {
-       if ( isActive ) {
-           // const sortedData = Sorting(data, id, isActive,filter);
-           // setFilter(sortedData);
-           // setIsSorted(true);
-           applySorting()
-       } else {
-           if(filter?.length>0 ) {
-               setFilter(originData)}
-           setIsSorted(false)
-           // else { setOriginData(data); setFilter(originData)}
-
-       }
-
+        if (isActive) {
+            applySorting()
+        } else {
+            if (filter?.length > 0) {
+                setFilter(originData)
+            }
+            setIsSorted(false)
+        }
     }, [isActive, id, originData, isSorted,]);
-
-    // useEffect(() => {
-    //     if (isSorted) {
-    //         applySorting();
-    //     }
-    // }, [isSorted, ]);
-
-const applySorting = () => {
-    const sortedData = Sorting(data, id, isActive,filter);
-    setFilter( sortedData);
-    setIsSorted(true);
-}
-
-
-
+    const applySorting = () => {
+        const sortedData = Sorting(data, id, isActive, filter);
+        setFilter(sortedData);
+        setIsSorted(true);
+    }
 
     return (
-        <div >
+        <div className={style.container__button}>
             <button className={`${style.button} ${isActive ? style.button_active : ''}`}
-                    onClick={() => {onClick(id); }}
-
+                    onClick={() => {
+                        onClick(id);
+                    }}
             >
                 {name}
             </button>

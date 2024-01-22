@@ -1,24 +1,22 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './App.scss';
 import './reset.scss'
 import Transfers from "./components/Transfers";
 import Sorts from "./components/Sorts";
 import Cards from "./components/Cards";
-
+import airplane from './airplane.svg'
 
 function App() {
-
     return (
         <div className="container">
-<div className="container__elem">
-    <Sorts/>
-</div>
-
-            <div className="container__el">
+            <img className='container__img' src={airplane}/>
+            <div className="container__sorting">
+                <Sorts/>
+            </div>
+            <div className="container__main">
                 <Transfers/>
                 <Cards/>
             </div>
-
         </div>
     );
 }

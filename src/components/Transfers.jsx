@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import style from "./Transfers.module.scss"
 import Checkbox from "./Checkbox";
 import {useData} from "../services/API";
-// import {data} from "../services/API";
-
 
 const Transfers = () => {
     const allTransfers = [
@@ -14,12 +12,13 @@ const Transfers = () => {
         {id: 4, text: 'all'},
     ]
 
-    const {data, filter,setFilter, transfers, setTransfers} = useData()
+    const {data, setFilter, setTransfers} = useData()
     const [activeFilters, setActiveFilters] = useState([]);
-const [activeAll, setActiveAll] = useState(false)
+    const [activeAll, setActiveAll] = useState(false)
+
     function handleFilterClick(element) {
         if (element.id === 4) {
-            activeAll? setActiveAll(false) : setActiveAll(true)
+            activeAll ? setActiveAll(false) : setActiveAll(true)
         } else {
             // Иначе, добавить/удалить фильтр из списка активных
             if (activeFilters.includes(element.id)) {
@@ -30,54 +29,38 @@ const [activeAll, setActiveAll] = useState(false)
         }
     }
 
-    // useEffect(() => {
-    //     if (!activeAll) {
-    //         // Если выбраны конкретные фильтры, очищаем список activeFilters
-    //         setActiveFilters([]);
-    //     }
-    // }, [activeAll]);
-
     useEffect(() => {
         const fu = () => {
             const filteredData = data?.filter((el) => {
-                if (activeAll) {
-                    return true;
-                }
-                if (activeFilters.length === 0 || el.id === 4) {
-                    return true;
-                }
-                if (el.id === 4) {
-                    setActiveAll(false)
-                    return true;
+                    if (activeAll) {
+                        return true;
+                    }
+                    if (activeFilters.length === 0 || el.id === 4) {
+                        return true;
+                    }
+                    if (el.id === 4) {
+                        setActiveAll(false)
+                        return true;
 
+                    }
+
+                    return activeFilters.includes(el.transfers);
                 }
-
-                return activeFilters.includes(el.transfers);
-            }
-
             );
 
             setFilter(filteredData);
             setTransfers(activeFilters);
-            console.log(filteredData)
-
         }
         fu();
+    }, [activeFilters, activeAll]);
 
-        console.log(activeFilters)
-        console.log(activeAll)
-
-        // activeFilters.length>0? setTransfers(true) : setTransfers(false)
-
-    }, [activeFilters,activeAll]);
-    // console.log(transfers)
 
     return (
         <div className={style.container}>
-            <h2 className={style.header}>Количество пересадок </h2>
+            <h2 className={style.container__header}>Количество пересадок </h2>
             <div className={style.options}>
                 {allTransfers.map(element => <Checkbox element={element} key={element.id}
-                                                    onClick={() => handleFilterClick(element)}/>)}
+                                                       onClick={() => handleFilterClick(element)}/>)}
 
             </div>
 

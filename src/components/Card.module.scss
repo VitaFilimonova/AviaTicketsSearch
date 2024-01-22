@@ -1,17 +1,71 @@
 @use "./../App";
 
 .card {
-    background-color: App.$global-grey;
-    width: 600px;
-    height: 300px;
+  background-color: App.$global-white;
+  width: 600px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 15px 30px;
+
+  &__description {
     display: flex;
-  flex-direction: row;
-  gap: 30px;
+    flex-direction: row;
+    gap: 30px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__description_mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 30px;
+  };
+
+  &__destination {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    //flex-direction: column;
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__dash {
+    font-weight: 800;
+  }
+
+  &__time {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 400;
+    font-size: 20px;
+    align-items: center;
+    padding: 0 120px;
+
+  }
+
+  &__transfers {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+.city {
+  font-size: 30px;
+  font-weight: 600;
+  text-align: center;
 }
 
 .info {
-   color: blueviolet;
-    font-size: 20px;
+  color: blueviolet;
+  font-size: 20px;
   font-family: App.$global-font;
   font-style: App.$global-font-style;
 }
@@ -20,15 +74,20 @@
 
 }
 
+.airport {
+  font-size: 25px;
+  font-weight: 400;
+}
+
 .price {
-display: flex;
+  display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
 .price_number {
-  color: App.$global-dark-blue;
-  font-size: 30px;
+  color: App.$global-middle-blue;
+  font-size: clamp(30px, 5vw ,50px);
 }
 
 .button {
@@ -39,12 +98,49 @@ display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  background: App.$global-blue;
+  background: App.$global-dark-blue;
   color: App.$global-white;
 }
 
-.logo_img {
-  background-color: blueviolet;
-  width: 40px;
-  height: 40px;
+.logo__img {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}
+
+@media screen and (max-width: App.$screen-tab-768) {
+.card {
+  width: clamp(280px,80vw,660px);
+  height: 500px;
+  padding: 10px 15px;
+
+  &__description {
+    flex-direction: column;
+    gap: 0;
+  }
+  &__description_mobile {
+    gap: clamp(15px, 15vw, 230px);
+  }
+
+  &__destination {
+    flex-direction: column;
+    gap:15px;
+
+  }
+
+  &__header {
+    align-items: center;
+  }
+
+  &__time {
+    padding: 0;
+  }
+}
+}
+
+@media screen and (min-width: App.$screen-tab-768 +1) and (max-width: App.$screen-tab-1024) {
+.card {
+  height: 350px;
+}
+
 }

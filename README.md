@@ -8,7 +8,7 @@ Art Gallery
 * [Usage](#usage)
 
 ## General info
-This project is a simple realisation of searching for air tickets. The received data is automatically updated on the server because are a collection of user requests on the 'aviasales' website. You can sort the received data by price and flight time. Unfortunately, the required parameters of the request already contain a sorting option by price, so it was not possible to fully implement it yourself. You can also filter tickets by number of transfers. You can check the project using the link to GitHub Pages.
+This project is a simple realisation of searching for air tickets. The received data is automatically updated on the server because are a collection of user requests on the 'aviasales' website. You can sort the received data by price and flight time. Unfortunately, the required parameters of the request already contain a sorting option by price, so it was not possible to fully implement it yourself. You can also filter tickets by number of transfers. The project is adapted for different screen sizes. You can check the project using the link to GitHub Pages.
 ![image](https://github.com/VitaFilimonova/AviaTicketsSearch/assets/114240442/d5f0f510-c9c8-4b06-a526-037ca4004e0e)
 
 

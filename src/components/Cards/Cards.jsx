@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Card from "./Card";
-import {useData} from "../services/API";
+import {useData} from "../../services/API";
 import style from "./Cards.module.scss"
 
 const Cards = () => {
@@ -17,7 +17,7 @@ const Cards = () => {
 
     return (
         <div className={style.cards}>
-            {filter ? filter.map(elem => <Card ticket={elem}/>) : data?.map(elem => <Card ticket={elem}/>)}
+            {filter ? filter.map(elem => <Card ticket={elem} key={elem.link}/>) : data?.map(elem => <Card ticket={elem} key={elem.link}/>)}
             <div className={`${style.cards__result} ${open ? style.cards__result_open : ''}`}>
                 <h2 className={style.cards__header}>No results</h2>
             </div>

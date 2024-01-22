@@ -1,16 +1,10 @@
-@use "./../App";
+@use "../../App";
 
-.container {
+.sorting {
   display: flex;
   flex-direction: row;
   gap: 10px;
-
-  &__button {
-  }
 }
-
-
-
 
 .button {
   width: 350px;
@@ -24,31 +18,29 @@
   align-items: center;
   justify-content: center;
   transition: background-color .2s ease-in-out, border-color .2s ease;
-
 }
 
 .button_active {
   background-color: App.$global-second-blue;
-
 }
 
 .button:hover {
   background-color: App.$global-middle-blue;
   transition: background-color 0.2s ease-in-out;
 }
+
 .button:hover:active {
   background-color: App.$global-black;
   transition: background-color 0.2s ease-in-out;
   border: 3px solid App.$global-blue;
 }
-.button:active{
+
+.button:active {
   background-color: App.$global-dark-blue;
-
 }
-
 
 @media screen and (max-width: App.$screen-tab-1024) {
   .button {
-    width: clamp(120px, 25vw ,250px);
+    width: clamp(120px, 25vw, 250px);
   }
 }

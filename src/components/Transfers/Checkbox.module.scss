@@ -1,15 +1,11 @@
+@use "../../App";
 
-
-.new {
-  padding: 50px;
-}
-
-.form_group {
+.form {
   display: block;
   margin-bottom: 15px;
 }
 
-.form_group input {
+.form input {
   padding: 0;
   height: initial;
   width: initial;
@@ -18,13 +14,13 @@
   cursor: pointer;
 }
 
-.form_group label {
+.form label {
   position: relative;
   cursor: pointer;
 }
 
-.form_group label:before {
-  content:'';
+.form label:before {
+  content: '';
   -webkit-appearance: none;
   background-color: transparent;
   border: 2px solid #0079bf;
@@ -37,7 +33,7 @@
   margin-right: 5px;
 }
 
-.form_group input:checked + label:after {
+.form input:checked + label:after {
   content: '';
   display: block;
   position: absolute;
@@ -48,4 +44,10 @@
   border: solid #0079bf;
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
+}
+
+@media screen and (min-width: App.$screen-tab-1366) {
+  .form input:checked + label:after {
+    top: 14px;
+  }
 }

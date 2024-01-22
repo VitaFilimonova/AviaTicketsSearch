@@ -1,11 +1,11 @@
-@use "./../App";
+@use "../../App";
 
-.container {
+.transfers {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 350px;
-  height: 300px;
+  height: 280px;
   background-color: App.$global-white;
   align-items: center;
 
@@ -15,45 +15,39 @@
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    margin-top: 8px;
   }
-}
-
-.options {
-
-}
-
-.header {
-
 }
 
 @media screen and (max-width: App.$screen-tab-1024) {
-  .container {
+  .transfers {
     width: clamp(250px, 50vw, 500px);
   }
 }
+
 @media screen and (min-width: App.$screen-tab-1024) {
-  .container {
+  .transfers {
     width: clamp(320px, 15vw, 400px);
   }
 }
 
 @media screen and (min-width: App.$screen-tab-1366) {
-  .container {
-    width: clamp(900px,80vw,1500px);
+  .transfers {
+    width: clamp(900px, 80vw, 1500px);
     height: 150px;
 
     &__header {
       font-size: 40px;
     }
 
+    &__options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 90%;
+    }
   }
 
-  .options {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 90%;
-  }
   label {
     font-size: 35px;
     font-weight: 400;

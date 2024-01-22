@@ -1,5 +1,4 @@
-@use "./../App";
-
+@use "../../App";
 
 .container {
   display: flex;
@@ -22,6 +21,9 @@
   align-items: center;
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     background: white;
     padding: 20px;
     border-radius: 5px;
@@ -36,8 +38,23 @@
     top: 10px;
     right: 15px;
   }
-}
 
+  &__flightNum {
+    font-size: clamp(20px, 5vw, 40px);
+  }
+
+  &__logo {
+    position: absolute;
+    bottom: 2vw;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    &_img {
+      width: clamp(100px, 20vw, 150px);
+      height: clamp(100px, 20vw, 150px);
+    }
+  }
+}
 
 @media screen and (max-width: App.$screen-tab-320) {
   .modal__content {

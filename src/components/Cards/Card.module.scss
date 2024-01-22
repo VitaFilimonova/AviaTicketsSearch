@@ -1,4 +1,4 @@
-@use "./../App";
+@use "../../App";
 
 .card {
   background-color: App.$global-white;
@@ -22,13 +22,12 @@
     flex-direction: row;
     align-items: center;
     gap: 30px;
-  };
+  }
 
   &__destination {
     display: flex;
     gap: 50px;
     align-items: center;
-    //flex-direction: column;
   }
 
   &__header {
@@ -48,7 +47,6 @@
     font-size: 20px;
     align-items: center;
     padding: 0 120px;
-
   }
 
   &__transfers {
@@ -57,40 +55,23 @@
   }
 }
 
-.city {
+.header__city {
   font-size: 30px;
   font-weight: 600;
   text-align: center;
 }
 
-.info {
-  color: blueviolet;
-  font-size: 20px;
-  font-family: App.$global-font;
-  font-style: App.$global-font-style;
-}
-
-.logo {
-
-}
-
-.airport {
+.header__airport {
   font-size: 25px;
   font-weight: 400;
 }
 
 .price {
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.price_number {
   color: App.$global-middle-blue;
-  font-size: clamp(30px, 5vw ,50px);
+  font-size: clamp(30px, 5vw, 50px);
 }
 
-.button {
+.description__button {
   display: flex;
   width: 169px;
   height: 44px;
@@ -109,38 +90,37 @@
 }
 
 @media screen and (max-width: App.$screen-tab-768) {
-.card {
-  width: clamp(280px,80vw,660px);
-  height: 500px;
-  padding: 10px 15px;
+  .card {
+    width: clamp(280px, 80vw, 660px);
+    height: 500px;
+    padding: 10px 15px;
 
-  &__description {
-    flex-direction: column;
-    gap: 0;
-  }
-  &__description_mobile {
-    gap: clamp(15px, 15vw, 230px);
-  }
+    &__description {
+      flex-direction: column;
+      gap: 0;
+    }
 
-  &__destination {
-    flex-direction: column;
-    gap:15px;
+    &__description_mobile {
+      gap: clamp(15px, 15vw, 230px);
+    }
 
-  }
+    &__destination {
+      flex-direction: column;
+      gap: 15px;
+    }
 
-  &__header {
-    align-items: center;
-  }
+    &__header {
+      align-items: center;
+    }
 
-  &__time {
-    padding: 0;
+    &__time {
+      padding: 0;
+    }
   }
-}
 }
 
 @media screen and (min-width: App.$screen-tab-768 +1) and (max-width: App.$screen-tab-1024) {
-.card {
-  height: 350px;
-}
-
+  .card {
+    height: 350px;
+  }
 }

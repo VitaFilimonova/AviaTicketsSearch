@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import style from './Sort.module.scss'
-import Sorting from "../services/Sorting";
-import {useData} from "../services/API";
+import Sorting from "../../services/Sorting";
+import {useData} from "../../services/API";
 
 const Sort = ({name, isActive, onClick, id}) => {
     const {data, filter, setFilter, transfers} = useData();
@@ -29,7 +29,7 @@ const Sort = ({name, isActive, onClick, id}) => {
     }
 
     return (
-        <div className={style.container__button}>
+        <div>
             <button className={`${style.button} ${isActive ? style.button_active : ''}`}
                     onClick={() => {
                         onClick(id);

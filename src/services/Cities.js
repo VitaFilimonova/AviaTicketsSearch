@@ -1,8 +1,8 @@
 import React from 'react';
-import style from "./../components/Card.module.scss"
+import style from "../components/Cards/Card.module.scss"
 
-const airportsData = require('./airports.json');
-const citiesData = require('./cities.json');
+const airportsData = require('../utilities/airports.json');
+const citiesData = require('../utilities/cities.json');
 
 const Cities = ({from = '', to = '', airport_from = '', airport_to = ''}) => {
 
@@ -13,7 +13,7 @@ const Cities = ({from = '', to = '', airport_from = '', airport_to = ''}) => {
         const airport = airportsData.find(airport => airport.code === airportCode);
         const city = citiesData.find(city => city.code === cityCode);
         if (airport && city) {
-            const cityName = city.name_translations.ru;
+            const cityName = city["name_translations"]["ru"];
             const airportName = airport.code;
             return {cityName, airportName};
         } else {
@@ -25,13 +25,12 @@ const Cities = ({from = '', to = '', airport_from = '', airport_to = ''}) => {
 
     return (
         <div className={style.card__header}>
-            <div className={style.city}>
+            <div className={style.header__city}>
                 {russianNames.cityName}
             </div>
-            <div className={style.airport}>
+            <div className={style.header__airport}>
                 {russianNames.airportName}
             </div>
-
         </div>
     );
 };

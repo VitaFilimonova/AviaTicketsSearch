@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import style from "./Transfers.module.scss"
 import Checkbox from "./Checkbox";
-import {useData} from "../services/API";
+import {useData} from "../../services/API";
 
 const Transfers = () => {
     const allTransfers = [
@@ -20,7 +20,6 @@ const Transfers = () => {
         if (element.id === 4) {
             activeAll ? setActiveAll(false) : setActiveAll(true)
         } else {
-            // Иначе, добавить/удалить фильтр из списка активных
             if (activeFilters.includes(element.id)) {
                 setActiveFilters(activeFilters.filter((filter) => filter !== element.id));
             } else {
@@ -41,24 +40,20 @@ const Transfers = () => {
                     if (el.id === 4) {
                         setActiveAll(false)
                         return true;
-
                     }
-
                     return activeFilters.includes(el.transfers);
                 }
             );
-
             setFilter(filteredData);
             setTransfers(activeFilters);
         }
         fu();
     }, [activeFilters, activeAll]);
 
-
     return (
-        <div className={style.container}>
-            <h2 className={style.container__header}>Количество пересадок </h2>
-            <div className={style.options}>
+        <div className={style.transfers}>
+            <h2 className={style.transfers__header}>Количество пересадок </h2>
+            <div className={style.transfers__options}>
                 {allTransfers.map(element => <Checkbox element={element} key={element.id}
                                                        onClick={() => handleFilterClick(element)}/>)}
 

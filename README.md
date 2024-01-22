@@ -1,4 +1,4 @@
-Art Gallery
+Search for air tickets
 ============
 
 ## Table of contents

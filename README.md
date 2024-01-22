@@ -17,6 +17,7 @@ This project is a simple realisation of searching for air tickets. The received 
 Project is created with:
 * HTML
 * SCSS
+* JavaScript
 * React
 	
 ## Setup

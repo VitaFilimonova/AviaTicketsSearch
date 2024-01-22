@@ -14,7 +14,7 @@ export const useData = () => {
 
 export const DataProvider = ({ children }) => {
     const [data, setData] = useState(null);
-    const [transfers, setTransfers] = useState(true);
+    const [transfers, setTransfers] = useState('');
     const [filter, setFilter] = useState('');
 
 

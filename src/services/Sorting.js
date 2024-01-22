@@ -2,10 +2,10 @@ import React, {useEffect} from 'react';
 import {useData} from "./API";
 import Card from "../components/Card";
 
-const Sorting = (data, id, isActive, filter, setFilter, transfers) => {
+const Sorting = (data, id, isActive, filter) => {
 
 
-    if (isActive) {
+    if (isActive && id===2) {
 
         // Сортируем данные в filter по свойству duration_to
         // let sortedFilter

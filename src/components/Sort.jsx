@@ -5,50 +5,54 @@ import {useData} from "../services/API";
 
 const Sort = ({name, action, isActive, onClick, id}) => {
     const { data, filter, setFilter, transfers } = useData();
+const [originData, setOriginData] = useState(filter)
+    const [isSorted, setIsSorted] = useState(false);
 
     useEffect(() => {
-       if ( id === 2) {
-           const sortedData = Sorting(filter, id, isActive, transfers);
-           setFilter(sortedData);
+        // Обновляем originData только если filter изменился и сортировка не была применена
+        // if (!isSorted) {
+            setOriginData(filter);
+        // }
+
+
+    }, [ transfers ]);
+    console.log(originData)
+    useEffect(() => {
+       if ( isActive ) {
+           // const sortedData = Sorting(data, id, isActive,filter);
+           // setFilter(sortedData);
+           // setIsSorted(true);
+           applySorting()
+       } else {
+           if(filter?.length>0 ) {
+               setFilter(originData)}
+           setIsSorted(false)
+           // else { setOriginData(data); setFilter(originData)}
+
        }
 
-    }, [isActive, id]);
+    }, [isActive, id, originData, isSorted,]);
+
+    // useEffect(() => {
+    //     if (isSorted) {
+    //         applySorting();
+    //     }
+    // }, [isSorted, ]);
+
+const applySorting = () => {
+    const sortedData = Sorting(data, id, isActive,filter);
+    setFilter( sortedData);
+    setIsSorted(true);
+}
 
 
-
-
-// useEffect(()=> {
-//     if(data || filter) {
-//         if (isActive) {
-//             const handleButtonClick = () => {
-//                 if (id === 2) {
-//                     let sortedFilter
-//                     if (filter) {
-//                         sortedFilter = [...filter];
-//                     } else {
-//                         sortedFilter = [...data];
-//                     }
-//
-//                     sortedFilter.sort((a, b) => a.duration_to - b.duration_to);
-//                     setFilter(sortedFilter)
-//                 }
-//             }
-//             handleButtonClick()
-//         } else {
-//             return setFilter(filter)
-//         }
-//         }
-//
-//
-//
-// }, [isActive])
 
 
     return (
         <div >
             <button className={`${style.button} ${isActive ? style.button_active : ''}`}
                     onClick={() => {onClick(id); }}
-                
+
             >
                 {name}
             </button>

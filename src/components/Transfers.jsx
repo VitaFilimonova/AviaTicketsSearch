@@ -58,21 +58,19 @@ const [activeAll, setActiveAll] = useState(false)
             );
 
             setFilter(filteredData);
+            setTransfers(activeFilters);
             console.log(filteredData)
-            console.log(transfers)
+
         }
         fu();
+
         console.log(activeFilters)
         console.log(activeAll)
 
         // activeFilters.length>0? setTransfers(true) : setTransfers(false)
 
     }, [activeFilters,activeAll]);
-
-    useEffect(() => {
-        setTransfers(activeFilters.length > 0 || activeAll);
-        console.log(transfers)
-    }, [activeFilters, activeAll]);
+    // console.log(transfers)
 
     return (
         <div className={style.container}>

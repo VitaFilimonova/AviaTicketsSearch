@@ -81,6 +81,22 @@
   border-radius: 8px;
   background: App.$global-dark-blue;
   color: App.$global-white;
+  transition: background-color .2s ease-in-out, border-color .2s ease;
+}
+
+.description__button:hover {
+  background-color: App.$global-middle-blue;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.description__button:hover:active {
+  background-color: App.$global-black;
+  transition: background-color 0.2s ease-in-out;
+  border: 3px solid App.$global-white;
+}
+
+.description__button:active {
+  background-color: App.$global-dark-blue;
 }
 
 .logo__img {

@@ -13,7 +13,7 @@ const Modal = ({isOpen, onClose, ticketFlightNumber, ticketLink}) => {
                 <p className={style.modal__flightNum}>
                     Номер рейса: <strong>{ticketFlightNumber} </strong>
                 </p>
-                <p>Приобрести билет можно по ссылке: <a href={`https://www.aviasales.ru/${ticketLink}`}>Билет</a></p>
+                <p>Приобрести билет можно по ссылке: <a href={`https://www.aviasales.ru/${ticketLink}`}>https://www.aviasales.ru/</a></p>
                 <div className={style.modal__logo}>
                     <img className={style.modal__logo_img} src={airplane} alt={'airplane'}/>
                 </div>

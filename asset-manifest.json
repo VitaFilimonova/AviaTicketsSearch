@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/AviaTicketsSearch/static/css/main.5e11ca11.css",
-    "main.js": "/AviaTicketsSearch/static/js/main.a8bf5a0a.js",
+    "main.js": "/AviaTicketsSearch/static/js/main.41d89e9a.js",
     "static/js/787.90d7d900.chunk.js": "/AviaTicketsSearch/static/js/787.90d7d900.chunk.js",
     "static/media/airplane-modal.svg": "/AviaTicketsSearch/static/media/airplane-modal.c5cbe9459eac7327b9e26eede568b0ec.svg",
     "static/media/airplane.svg": "/AviaTicketsSearch/static/media/airplane.b603e181e728b0962b2ac48ca2d5cca3.svg",
     "index.html": "/AviaTicketsSearch/index.html",
     "main.5e11ca11.css.map": "/AviaTicketsSearch/static/css/main.5e11ca11.css.map",
-    "main.a8bf5a0a.js.map": "/AviaTicketsSearch/static/js/main.a8bf5a0a.js.map",
+    "main.41d89e9a.js.map": "/AviaTicketsSearch/static/js/main.41d89e9a.js.map",
     "787.90d7d900.chunk.js.map": "/AviaTicketsSearch/static/js/787.90d7d900.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5e11ca11.css",
-    "static/js/main.a8bf5a0a.js"
+    "static/js/main.41d89e9a.js"
   ]
 }
